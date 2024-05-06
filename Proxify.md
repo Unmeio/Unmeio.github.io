@@ -1,3 +1,6 @@
+layout: page
+title: "Proxify"
+permalink: /Proxify
 # Proxify
 
 Proxify is module that allows event-based callback functionality for tables, through the implementation of a 'Proxy' table to take advantage of the __index and __newindex metamethods.
