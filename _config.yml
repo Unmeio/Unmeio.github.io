@@ -1,4 +1,5 @@
 layout: page
 title: "Proxify"
 permalink: /proxify
-theme: minima
+google_analytics:
+theme: jekyll-theme-midnight
