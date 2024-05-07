@@ -51,5 +51,5 @@ The code by default uses my custom Signal implementation `NEvent`, but has the c
   Table.Hi = 5 -- Would trigger print
   ```
   Since the the original table is directly replaced with a Proxy, the lingering reference of Table2 points at the Proxy.
-### Installation
+## Installation
 Proxify is available as a [Model by Simply_Nobody](https://create.roblox.com/store/asset/17414468091/Proxify)
