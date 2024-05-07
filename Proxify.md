@@ -26,11 +26,11 @@ end)
 Table.Age = 26 -- Prints 'Key "Age" set to 26'
 ```
 
-The Proxify module returns a Constructor function (technically a table with __call set up but ignore that) 
-Proxify creates a shallow copy of the input table, and empties the input table for use as a Proxy. This prevents any referencing issues, as any previous references to the table will rightfully be towards the Proxy.
+The Proxify module returns a Constructor function to translate an input table into a 'Proxy' table with Signals under the '__index' and '__newindex' indices.
+Proxify creates a shallow copy of the input table, and empties the input table for use as a Proxy. This prevents any referencing issues, as any references to the original table will rightfully work through the Proxy.
 
-Additionally, as the Proxy is emptied, it allows for the __index and __newindex metamethods to fire, and thus allows a Signal to fire for any index or change to a table.
-Every Proxy utilizes a wrapper object known as an `IndexEvent`, which takes any Signal class that utilizes :Connect and :Fire methods. IndexEvents additionally offers a method to generate Signals for individual indices with the `:IndexOf(index)` method. 
+Additionally, as the Proxy is emptied, it allows for the __index and __newindex metamethods to fire, and thus allows a Signal to fire for any index or assignment within the table.
+Every Proxy utilizes a wrapper object known as an `IndexEvent`, which takes any Signal class that utilizes :Connect and :Fire methods. IndexEvents additionally offer a method to generate Signals for individual indices with the `:IndexOf(index)` method. 
 
 The code by default uses my custom Signal implementation `NEvent`, but has the capability to take different Signal classes. You can utilize any Signal of your choice by plugging its constructor function into the Event variable at the top of the IndexEvent module:
 
@@ -51,3 +51,5 @@ The code by default uses my custom Signal implementation `NEvent`, but has the c
   Table.Hi = 5 -- Would trigger print
   ```
   Since the the original table is directly replaced with a Proxy, the lingering reference of Table2 points at the Proxy.
+### Installation
+Proxify is available as a [Model by Simply_Nobody](https://create.roblox.com/store/asset/17414468091/Proxify)
