@@ -37,7 +37,7 @@ The code by default uses my custom Signal implementation `NEvent`, but has the c
 ### Important Notes
 - As every Proxy's Signals are located in the __index and __newindex indices, do not use a Proxy as a Metatable. Your code will likely not function properly.
 - As Proxy tables are effectively empty, the `#` operator will always return 0. (I would've implement __len if roblox let me, I promise).
-- Proxy tables are implemented with __iter so you can iterate over a Proxied with no problems .
+- Proxy tables are implemented with __iter allowing users to iterate over a Proxy's actual table with no problems.
 - As mentioned before, Proxify does its work entirely in-place with the original table.
   For example, the following code would work:
   ```lua
@@ -50,6 +50,6 @@ The code by default uses my custom Signal implementation `NEvent`, but has the c
   Table2.__newindex:Connect(print)
   Table.Hi = 5 -- Would trigger print
   ```
-  Since the the original table is directly replaced with a Proxy, the lingering reference of Table2 points at the Proxy.
+  Since the the original table is directly replaced with a Proxy, the lingering reference of Table2 will point at the Proxy.
 ## Installation
 Proxify is available as a [Model by Simply_Nobody](https://create.roblox.com/store/asset/17414468091/Proxify)
